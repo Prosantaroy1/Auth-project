@@ -1,7 +1,12 @@
 /* eslint-disable react/prop-types */
+
+import { Link } from "react-router-dom";
+
   
 const Productcard = ({product}) => {
-    const {title, image,price, rating} = product;
+    const {id,title, image,price, rating} = product;
+    //
+   
     return (
         <div>
             <div className="card card-compact w-[370px] h-[350px] bg-base-100 shadow-xl">
@@ -15,7 +20,9 @@ const Productcard = ({product}) => {
                     <p className=" p-2 rounded-2xl bg-orange-300">Rating: {rating.rate}</p>
                  </div>
                </div>
-               <button className="btn btn-block bg-teal-700">ADD TO CARD</button>
+               <Link to={`/card/${id}`}>
+                  <button  className="btn btn-block bg-teal-700">ADD TO CARD</button>
+                </Link>
             </div>
         </div>
     );

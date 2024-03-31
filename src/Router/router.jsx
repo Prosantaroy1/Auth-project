@@ -4,6 +4,7 @@ import Errorpage from "../component/Errorpage/Errorpage";
 import Home from "../component/Home/Home";
 import Login from "../component/Login/Login";
 import Register from "../component/Register/Register";
+import ProductDetails from "../component/ProductDetails/ProductDetails";
 
 const router = createBrowserRouter([
     {
@@ -22,6 +23,11 @@ const router = createBrowserRouter([
         {
             path: '/register',
             element: <Register/>
+        },
+        {
+          path: '/card/:id',
+          element: <ProductDetails/>,
+          loader: ({params}) =>fetch(`https://fakestoreapi.com/products/${params.id}`)
         }
       ]
     },
